@@ -1,6 +1,5 @@
-
 <!-- binding form group before connect form control -->
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <h2>Login</h2>
 
   <div class="control-row">
@@ -18,4 +17,11 @@
 
     <button class="button">Login</button>
   </div>
+
+  @if(emailIsValid){ 
+    <p class="control-error">Please Enter a valid email address.</p>
+  }
+  @if(passwordIsValid){ 
+    <p class="control-error">Please Enter a valid password(6 characters long and a ? mark).</p>
+  }
 </form>
